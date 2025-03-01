@@ -10,10 +10,10 @@ body {
 }
 
 h1 {
-  font-size: 1.875rem; /* Equivalent to text-3xl */
-  font-weight: 700; /* Equivalent to font-bold */
-  text-align: center; /* Equivalent to text-center */
-  color: #3182ce; /* Equivalent to text-blue-600 */
+  font-size: 1.875rem;
+  font-weight: 700; 
+  text-align: center; 
+  color: #3182ce;
 }
 
 .card {

@@ -1,48 +1,14 @@
 {
-<<<<<<< HEAD
-  "name": "my-shopify-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "shop-sense",
+  "version": "1.0.0",
+  "main": "server.js",
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "node server.js"
   },
   "dependencies": {
-    "@shopify/shopify-api": "^11.9.0",
-    "@shopify/shopify-app-express": "^5.0.13",
-    "next": "15.1.7",
-    "next-auth": "^4.24.11",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.7",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
-=======
-  "dependencies": {
-    "@prisma/client": "^6.4.1",
-    "@remix-run/node": "^1.0.0",
-    "@remix-run/react": "^1.0.0",
-    "@shopify/app-bridge-react": "^3.0.0",
-    "@shopify/app-bridge-utils": "^3.0.0",
-    "chart.js": "^4.0.0",
-    "dotenv": "^16.4.7",
-    "mongodb": "^6.13.1",
-    "mongoose": "^8.11.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
-  },
-  "devDependencies": {
-    "prisma": "^6.4.1"
->>>>>>> 886df17 (Updated project with fixes and improvements)
+    "express": "^4.18.2",
+    "mongoose": "^7.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3"
   }
 }

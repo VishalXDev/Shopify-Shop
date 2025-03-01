@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("checkout-survey").addEventListener("submit", function(event) {
         event.preventDefault();
         const data = new FormData(event.target);
-        fetch('http://localhost:5000/api/survey/submit', {
+        fetch('/api/survey/submit', {
             method: 'POST',
             body: JSON.stringify(Object.fromEntries(data)),
             headers: { "Content-Type": "application/json" }

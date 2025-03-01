@@ -1,23 +1,24 @@
-import express from "express";
-import mongoose from "mongoose";
-import cors from "cors";
-import surveyRoutes from "./routes/survey";
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const connectDB = require("./config/db");
+const surveyRoutes = require("./routes/survey");
 
-import dotenv from "dotenv";
-dotenv.config();
+// Connect to Database
+connectDB();
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Database Connection
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => console.log("MongoDB Connected"))
-  .catch(err => console.error(err));
-
+// Routes
 app.use("/api/survey", surveyRoutes);
 
+// Handle 404 Errors
+app.use((req, res) => {
+    res.status(404).json({ error: "❌ Route Not Found" });
+});
+
+// Start Server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));

@@ -5,7 +5,7 @@ const Dashboard = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/survey/responses")
+        fetch("/api/survey/responses")
             .then((res) => res.json())
             .then((data) => setData(data));
     }, []);

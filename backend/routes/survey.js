@@ -1,28 +1,27 @@
-import express from "express";
-import SurveyResponse from "../models/SurveyResponse";
+const express = require("express");
 const router = express.Router();
+const SurveyResponse = require("../models/SurveyResponse");
 
-// Submit Survey Response
 router.post("/submit", async (req, res) => {
     try {
         const { source } = req.body;
-        const response = new SurveyResponse({ source });
+        if (!source) return res.status(400).json({ error: "Source is required" });
+
+        const response = new SurveyResponse({ source, timestamp: new Date() });
         await response.save();
-        res.status(201).json({ message: "Survey submitted!" });
+
+        res.status(201).json({ message: "Survey submitted!", response });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: "Server error" });
+        res.status(500).json({ error: "Internal Server Error" });
     }
 });
 
-// Get All Responses
 router.get("/responses", async (req, res) => {
     try {
         const responses = await SurveyResponse.find();
-        res.status(200).json(responses);
+        res.json(responses);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: "Error fetching responses" });
+        res.status(500).json({ error: "Failed to fetch responses" });
     }
 });
 

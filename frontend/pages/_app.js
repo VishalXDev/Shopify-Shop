@@ -1,4 +1,4 @@
-import "@shopify/polaris/build/esm/styles.css";
+// import "@shopify/polaris/build/esm/styles.css";
 import "../styles/globals.css"; // Your global Tailwind CSS file
 import { AppProvider } from "@shopify/polaris";
 

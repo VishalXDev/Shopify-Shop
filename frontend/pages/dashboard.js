@@ -1,24 +1,34 @@
-import { Card, DataTable } from "@shopify/polaris";
+import { Card, DataTable, Page, Layout, Text } from "@shopify/polaris";
 import { useEffect, useState } from "react";
 
 const Dashboard = () => {
-    const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
 
-    useEffect(() => {
-        fetch("/api/survey/responses")
-            .then((res) => res.json())
-            .then((data) => setData(data));
-    }, []);
+  useEffect(() => {
+    fetch("/api/survey/responses")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, []);
 
-    return (
-        <Card title="Survey Responses">
+  return (
+    <Page title="Survey Responses">
+      <Layout>
+        <Layout.Section>
+          <Card>
+            <Text variant="headingMd">Survey Responses</Text>
             <DataTable
-                columnContentTypes={["text", "text"]}
-                headings={["Source", "Timestamp"]}
-                rows={data.map(({ source, timestamp }) => [source, new Date(timestamp).toLocaleString()])}
+              columnContentTypes={["text", "text"]}
+              headings={["Source", "Timestamp"]}
+              rows={data.map(({ source, timestamp }) => [
+                source,
+                new Date(timestamp).toLocaleString(),
+              ])}
             />
-        </Card>
-    );
+          </Card>
+        </Layout.Section>
+      </Layout>
+    </Page>
+  );
 };
 
 export default Dashboard;

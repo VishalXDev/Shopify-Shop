@@ -10,6 +10,16 @@ exports.id = "vendor-chunks/@shopify";
 exports.ids = ["vendor-chunks/@shopify"];
 exports.modules = {
 
+/***/ "(pages-dir-node)/./node_modules/@shopify/polaris/build/esm/styles.css":
+/*!************************************************************!*\
+  !*** ./node_modules/@shopify/polaris/build/esm/styles.css ***!
+  \************************************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
 /***/ "./node_modules/@shopify/polaris/build/esm/styles.css":
 /*!************************************************************!*\
   !*** ./node_modules/@shopify/polaris/build/esm/styles.css ***!

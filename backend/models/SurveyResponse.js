@@ -1,8 +1,9 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const SurveyResponseSchema = new mongoose.Schema({
-  question: String,
-  answer: String,
+    source: { type: String, required: true },
+    timestamp: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model("SurveyResponse", SurveyResponseSchema);
+const SurveyResponse = mongoose.model("SurveyResponse", SurveyResponseSchema);
+export default SurveyResponse;  // ✅ Use `export default`

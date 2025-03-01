@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const SurveyResponse = require("../models/SurveyResponse");
+import SurveyResponse from "../models/SurveyResponse.js";  // ✅ Use ES module import
 
 router.post("/submit", async (req, res) => {
     try {

@@ -1,6 +1,15 @@
-import "@shopify/polaris/build/esm/styles.css"; // Shopify Polaris styles
-import "../styles/globals.css"; // Tailwind global styles
+// frontend/pages/_app.js
 
-export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+import '@shopify/polaris/build/esm/styles.css';
+import '../styles/globals.css'; // Your global Tailwind CSS file
+import { AppProvider } from '@shopify/polaris';
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <AppProvider>
+      <Component {...pageProps} />
+    </AppProvider>
+  );
 }
+
+export default MyApp;

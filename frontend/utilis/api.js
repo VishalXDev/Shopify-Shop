@@ -1,0 +1,1 @@
+const BASE_URL = "https://shop-sense-udts.onrender.com"; // Replace with your backend URL

@@ -18,16 +18,6 @@ exports.modules = {
 
 
 
-/***/ }),
-
-/***/ "./node_modules/@shopify/polaris/build/esm/styles.css":
-/*!************************************************************!*\
-  !*** ./node_modules/@shopify/polaris/build/esm/styles.css ***!
-  \************************************************************/
-/***/ (() => {
-
-
-
 /***/ })
 
 };

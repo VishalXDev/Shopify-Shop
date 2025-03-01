@@ -1,14 +1,14 @@
-const express = require("express");
+import express from "express";
+import SurveyResponse from "../models/SurveyResponse.js"; // ✅ Ensure correct import
+
 const router = express.Router();
-const SurveyResponse = require("../models/SurveyResponse");
-import SurveyResponse from "../models/SurveyResponse.js";  // ✅ Use ES module import
 
 router.post("/submit", async (req, res) => {
     try {
         const { source } = req.body;
         if (!source) return res.status(400).json({ error: "Source is required" });
 
-        const response = new SurveyResponse({ source, timestamp: new Date() });
+        const response = new SurveyResponse({ source });
         await response.save();
 
         res.status(201).json({ message: "Survey submitted!", response });
@@ -26,4 +26,4 @@ router.get("/responses", async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

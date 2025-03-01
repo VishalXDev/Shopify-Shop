@@ -1,9 +1,10 @@
-const express = require("express");
-const cors = require("cors");
-const surveyRoutes = require("./routes/survey"); // Import routes
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+import surveyRoutes from "./routes/survey.js"; // ✅ Ensure correct extension
 
-require("dotenv").config();
-const mongoose = require("mongoose");
+dotenv.config();
 
 const app = express();
 app.use(express.json());
@@ -14,12 +15,10 @@ mongoose
   .then(() => console.log("✅ MongoDB Connected"))
   .catch((err) => console.error("❌ MongoDB Connection Error:", err));
 
-// ✅ Add this root route
 app.get("/", (req, res) => {
   res.send("🚀 Backend is running!");
 });
 
-// ✅ Ensure API routes are correctly loaded
 app.use("/api/survey", surveyRoutes);
 
 const PORT = process.env.PORT || 5000;

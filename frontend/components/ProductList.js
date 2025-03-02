@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+// import "./styles.css"; // Import the CSS file
 
 export default function ProductList() {
   const [products, setProducts] = useState([]);

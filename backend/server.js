@@ -1,6 +1,15 @@
 import express from "express";
 
 const app = express();
+import cors from "cors";
+app.use(cors());
+
+app.get("/api/products", (req, res) => {
+  res.json([
+    { id: 1, name: "Product A" },
+    { id: 2, name: "Product B" },
+  ]);
+});
 
 // Middleware
 app.use(express.json());

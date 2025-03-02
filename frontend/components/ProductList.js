@@ -9,6 +9,7 @@ export default function ProductList() {
     async function fetchProducts() {
       try {
         const response = await fetch("http://localhost:5000/api/products");
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         const data = await response.json();
         setProducts(data);
       } catch (error) {
@@ -27,9 +28,11 @@ export default function ProductList() {
     <div>
       <h2>Product List</h2>
       <ul>
-        {products.map((product) => (
-          <li key={product.id}>{product.name}</li>
-        ))}
+        {products.length > 0 ? (
+          products.map((product) => <li key={product.id}>{product.name}</li>)
+        ) : (
+          <p>No products available.</p>
+        )}
       </ul>
     </div>
   );

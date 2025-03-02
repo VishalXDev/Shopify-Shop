@@ -1,21 +1,15 @@
-import React from "react";
-import { Page, Card, Layout, TextContainer } from "@shopify/polaris"; // Ensure Polaris components are correctly imported
+"use client";
+import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 
-const Home = () => {
+// Disable SSR for ProductList
+const ProductList = dynamic(() => import("../components/ProductList"), { ssr: false });
+
+export default function Home() {
   return (
-    <Page title="Welcome to Shop Sense">
-      <Layout>
-        <Layout.Section>
-          <Card sectioned>
-            <TextContainer>
-              <h1>Shop Sense - AI-Powered Recommendations</h1>
-              <p>Discover personalized products using AI.</p>
-            </TextContainer>
-          </Card>
-        </Layout.Section>
-      </Layout>
-    </Page>
+    <div>
+      <h1>Welcome to Shop Sense</h1>
+      <ProductList />
+    </div>
   );
-};
-
-export default Home; // Ensure the component is properly exported
+}
